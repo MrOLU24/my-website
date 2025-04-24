@@ -37,7 +37,31 @@ const MobileNav = () => {
         <CiMenuFries className="text-[32px] text-accent-solid" />
       </SheetTrigger>
       <SheetContent className="flex flex-col">
-       <div>Logo</div>
+        <div className="mt-32 mb-40 text-center text-2xl">
+          <Link href="/">
+            <h1 className="text-4xl font-semibold">
+              MrOLU <span className="text-accent-solid">.</span>
+            </h1>
+          </Link>
+        </div>
+
+        {/* nav */}
+        <nav className="flex flex-col justify-center items-center gap-8">
+          {Links.map((linkItem, index) => {
+            return (
+              <Link
+                key={index}
+                href={linkItem.path}
+                className={`${
+                  linkItem.path === pathname &&
+                  "text-accent-solid border-b-2 border-accent-solid"
+                } text-xl capitalize hover:text-accent-hover transition-all`}
+              >
+                {linkItem.name}
+              </Link>
+            );
+          })}
+        </nav>
       </SheetContent>
     </Sheet>
   );
