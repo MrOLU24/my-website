@@ -12,8 +12,8 @@ export default function Home() {
           <div className="text-center xl:text-left">
             <span className="text-xl">Software Developer</span>
             <h1 className="h1 mb-6">
-              Hello <br />{" "}
-              <span className="text-accent-solid">I'm Olatunji Oluwashola</span>
+              Hello <br />
+              <span className="text-accent-solid">I&apos;m Olatunji Oluwashola</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
               I excel at crafting elegant digital experiences and I am
