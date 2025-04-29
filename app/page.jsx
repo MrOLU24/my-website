@@ -3,6 +3,7 @@
 import "./globals.css";
 import { Button } from "@/components/ui/button";
 import { FiDownload } from "react-icons/fi";
+import Socials from "@/components/socials";
 
 export default function Home() {
   return (
@@ -12,8 +13,8 @@ export default function Home() {
           <div className="text-center xl:text-left">
             <span className="text-xl">Software Developer</span>
             <h1 className="h1 mb-6">
-              Hello <br />
-              <span className="text-accent-solid">I&apos;m Olatunji Oluwashola</span>
+              Hello I&apos;m <br />
+              <span className="text-accent-solid">Olatunji Oluwashola</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
               I excel at crafting elegant digital experiences and I am
@@ -28,7 +29,12 @@ export default function Home() {
                 <span>Download CV</span>
                 <FiDownload />
               </Button>
-              <div>socials</div>
+              <div className="mb-8 xl:mb-0">
+                <Socials
+                  containerStyles="flex gap-6"
+                  iconStyles="w-9 h-9 border border-accent-solid rounded-full flex justify-center items-center text-center text-accent-solid text-base hover:bg-accent-solid hover:text-primary-solid hover:transition-all duration-500 ease-in-out"
+                />
+              </div>
             </div>
           </div>
           <div>photo</div>
