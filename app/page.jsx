@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { FiDownload } from "react-icons/fi";
 import Socials from "@/components/socials";
 import Photo from "@/components/Photo";
+import Stats from "@/components/Stats";
 
 export default function Home() {
   return (
@@ -43,6 +44,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Stats/>
     </section>
   );
 }
