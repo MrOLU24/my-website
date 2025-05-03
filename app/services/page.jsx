@@ -49,12 +49,17 @@ const Services = () => {
                 <div className="text-6xl font-extrabold text-outline text-transparent text-outline-hover transition-all duration-500">
                   {item.num}
                 </div>
-                <Link href={item.href}>
-                  <BsArrowDownRight />
+                <Link
+                  href={item.href}
+                  className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent-solid transition-all duration-500 flex justify-center items-center hover:rotate-45"
+                >
+                  <BsArrowDownRight className="text-primary-solid text-3xl" />
                 </Link>
               </div>
-              <h2>{item.title}</h2>
-              <p>{item.desc}</p>
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent-solid transition-all duration-500">
+                {item.title}
+              </h2>
+              <p className="text-white/60">{item.desc}</p>
               <div className="border-b border-white/20 w-full"></div>
             </div>
           ))}
