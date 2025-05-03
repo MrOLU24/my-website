@@ -6,25 +6,25 @@ import { motion } from "framer-motion";
 
 const serviceItems = [
   {
-    num: 1,
+    num: "01",
     title: "Web Development",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
     href: "",
   },
   {
-    num: 2,
+    num: "02",
     title: "Mobile Development",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
     href: "",
   },
   {
-    num: 3,
+    num: "03",
     title: "Vidio Editor",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
     href: "",
   },
   {
-    num: 4,
+    num: "04",
     title: "Digital Marketing",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
     href: "",
@@ -46,7 +46,7 @@ const Services = () => {
               className="flex flex-col flex-1 justify-center gap-6 group"
             >
               <div className="w-full flex items-center justify-between">
-                <div className="text-6xl font-extrabold text-outline text-transparent">
+                <div className="text-6xl font-extrabold text-outline text-transparent text-outline-hover transition-all duration-500">
                   {item.num}
                 </div>
                 <Link href={item.href}>
