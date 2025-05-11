@@ -1,6 +1,6 @@
 "use client";
 
-import { BsArrowDownRight } from "react-icons/bs";
+import { BsArrowUpRight } from "react-icons/bs";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -19,7 +19,7 @@ const serviceItems = [
   },
   {
     num: "03",
-    title: "Vidio Editor",
+    title: "Video Editor",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
     href: "",
   },
@@ -53,7 +53,7 @@ const Services = () => {
                   href={item.href}
                   className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent-solid transition-all duration-500 flex justify-center items-center hover:rotate-45"
                 >
-                  <BsArrowDownRight className="text-primary-solid text-3xl" />
+                  <BsArrowUpRight className="text-primary-solid text-3xl transform " />
                 </Link>
               </div>
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent-solid transition-all duration-500">
