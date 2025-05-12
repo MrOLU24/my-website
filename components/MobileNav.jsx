@@ -1,30 +1,40 @@
 "use client";
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { CiMenuFries } from "react-icons/ci";
+import { usePathname } from "next/navigation";
+
+// Icons for each link
+import { AiFillHome } from "react-icons/ai";
+import { MdDesignServices } from "react-icons/md";
+import { FaRegFileAlt } from "react-icons/fa";
+import { MdWork } from "react-icons/md";
+import { IoMdContact } from "react-icons/io";
 
 const Links = [
   {
     name: "home",
     path: "/",
+    icon: <AiFillHome />,
   },
   {
     name: "services",
     path: "/services",
+    icon: <MdDesignServices />,
   },
   {
     name: "resume",
     path: "/resume",
+    icon: <FaRegFileAlt />,
   },
   {
     name: "work",
     path: "/work",
+    icon: <MdWork />,
   },
   {
     name: "contact",
     path: "/contact",
+    icon: <IoMdContact />,
   },
 ];
 
@@ -32,38 +42,25 @@ const MobileNav = () => {
   const pathname = usePathname();
 
   return (
-    <Sheet>
-      <SheetTrigger className="flex justify-center items-center">
-        <CiMenuFries className="text-[32px] text-accent-solid" />
-      </SheetTrigger>
-      <SheetContent className="flex flex-col">
-        <div className="mt-32 mb-40 text-center text-2xl">
-          <Link href="/">
-            <h1 className="text-4xl font-semibold">
-              MrOLU <span className="text-accent-solid">.</span>
-            </h1>
-          </Link>
-        </div>
-
-        {/* nav */}
-        <nav className="flex flex-col justify-center items-center gap-8">
-          {Links.map((linkItem, index) => {
-            return (
-              <Link
-                key={index}
-                href={linkItem.path}
-                className={`${
-                  linkItem.path === pathname &&
-                  "text-accent-solid border-b-2 border-accent-solid"
-                } text-xl capitalize hover:text-accent-hover transition-all`}
-              >
-                {linkItem.name}
-              </Link>
-            );
-          })}
-        </nav>
-      </SheetContent>
-    </Sheet>
+    <div className="fixed bottom-0 left-0 w-full bg-black/50 border-t border-white/10 z-50">
+      <nav className="flex justify-between px-6 py-3">
+        {Links.map((link, index) => {
+          const isActive = pathname === link.path;
+          return (
+            <Link
+              key={index}
+              href={link.path}
+              className={`flex flex-col items-center text-sm transition-all ${
+                isActive ? "text-accent-solid" : "text-white"
+              }`}
+            >
+              <span className="text-2xl">{link.icon}</span>
+              <span className="text-xs capitalize">{link.name}</span>
+            </Link>
+          );
+        })}
+      </nav>
+    </div>
   );
 };
 
