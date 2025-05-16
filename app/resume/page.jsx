@@ -12,12 +12,21 @@ import {
 } from "react-icons/fa";
 import {
   SiTailwindcss,
-  siMongodb,
-  siExpress,
-  siPostgresql,
+  // siMongodb,
+  // siExpress,
+  // siPostgresql,
   SiTypescript,
   SiNextdotjs,
 } from "react-icons/si";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { motion } from "framer-motion";
 
 const about = {
   title: "About Me",
@@ -35,11 +44,11 @@ const about = {
   ],
 };
 
-const skills = {
+const experience = {
   icon: "/assets/resume/icons/badge.svg",
-  title: "My Skills",
+  title: "My Experience",
   description:
-    "I have worked on various projects using different technologies.",
+    " I have worked on various projects, both independently and as part of a team. My experience includes frontend development, digital marketing, and video editing. I am proficient in using modern web technologies to build scalable and efficient applications.",
   items: [
     {
       title: "Frontend Developer",
@@ -69,6 +78,72 @@ const skills = {
       description:
         "Developed and executed digital marketing strategies to increase brand awareness and drive traffic to websites.",
     },
+    {
+      title: "Frontend Developer",
+      company: "Startup Company",
+      duration: "Jan 2024",
+      description:
+        "Worked on a startup project using React and Node.js. Collaborated with a team of developers to build a scalable web application.",
+    },
+  ],
+};
+
+const education = {
+  icon: "assets/icons/cap.svg",
+  title: "Education",
+  description: "My educational background.",
+  items: [
+    {
+      degree: "National Diploma in Computer Science",
+      institution: "Gateway Polytechnic",
+      year: "2020",
+    },
+    {
+      degree: "Higher National Diploma in Computer Science",
+      institution: "Gateway Polytechnic",
+      year: "2022",
+    },
+    {
+      institution: "Online Programming Bootcamp",
+      degree: "Certificate in Web Developer",
+      year: "2023-2024",
+    },
+    {
+      institution: "AltSchool Africa",
+      degree: "Diploma in Frontend Engineering",
+      year: "2025",
+    },
+    {
+      degree: "Certificate in Digital Marketing",
+      institution: "Udemy",
+      year: "2024",
+    },
+    {
+      degree: "Certificate in Video Editing",
+      institution: "Udemy",
+      year: "2025",
+    },
+  ],
+};
+
+const skills = {
+  title: "My Skills",
+  description:
+    "I have a diverse skill set that includes both front-end and back-end technologies. I am always eager to learn new skills and improve my existing ones.",
+  skillList: [
+    { name: "HTML5", icon: <FaHtml5 /> },
+    { name: "CSS 3", icon: <FaCss3 /> },
+    { name: "JavaScript", icon: <Fajs /> },
+    { name: "React", icon: <FaReact /> },
+    { name: "Node.js", icon: <FaNodeJs /> },
+    // { name: "Express.js", icon: <siExpress /> },
+    // { name: "MongoDB", icon: <siMongodb /> },
+    // { name: "PostgreSQL", icon: <siPostgresql /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+    { name: "Figma", icon: <FaFigma /> },
+    { name: "Python", icon: <FaPython /> },
+    { name: "TypeScript", icon: <SiTypescript /> },
+    { name: "Next.js", icon: <SiNextdotjs /> },
   ],
 };
 
