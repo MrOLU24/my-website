@@ -4,7 +4,7 @@ import React from "react";
 import {
   FaHtml5,
   FaCss3,
-  Fajs,
+  FaJs,
   FaReact,
   FaFigma,
   FaNodeJs,
@@ -133,7 +133,7 @@ const skills = {
   skillList: [
     { name: "HTML5", icon: <FaHtml5 /> },
     { name: "CSS 3", icon: <FaCss3 /> },
-    { name: "JavaScript", icon: <Fajs /> },
+    { name: "JavaScript", icon: <FaJs /> },
     { name: "React", icon: <FaReact /> },
     { name: "Node.js", icon: <FaNodeJs /> },
     // { name: "Express.js", icon: <siExpress /> },
@@ -148,7 +148,20 @@ const skills = {
 };
 
 const Resume = () => {
-  return <div>resume page coming soon</div>;
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: {delay: 2.4, duration: 0.4, ease: "easeIn" } }} className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0">
+      <div className="container mx-auto">
+       <Tabs>
+        <TabsList>
+          <TabsTrigger value="about">About</TabsTrigger>
+          <TabsTrigger value="experience">Experience</TabsTrigger>
+          <TabsTrigger value="education">Education</TabsTrigger>
+          <TabsTrigger value="skills">Skills</TabsTrigger>
+        </TabsList>
+       </Tabs>
+      </div>
+    </motion.div>
+  );
 };
 
 export default Resume;
