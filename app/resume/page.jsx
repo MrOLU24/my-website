@@ -59,14 +59,14 @@ const experience = {
     },
     {
       position: "Frontend Developer",
-      company: "Teckcify",
+      company: "Gopay Inc.",
       duration: "Jan 2024",
       description:
         "Worked on multiple projects using React and TypeScript. Collaborated with designers to create user-friendly interfaces.",
     },
     {
-      position: "video Editor",
-      company: "Video Company",
+      position: "Video Editor",
+      company: "Freelance",
       duration: "Jan 2024",
       description:
         "Edited and produced videos for various clients using Adobe Premiere Pro and After Effects.",
@@ -186,12 +186,12 @@ const Resume = () => {
                 <ScrollArea className="h-[400px]">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                     {experience.items.map((item, index) => (
-                      <li key={index}>
-                        <span>{item.duration}</span>
-                        <h3>{item.position}</h3>
-                        <div>
-                          <span></span>
-                          <p>{item.company}</p>
+                      <li key={index} className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
+                        <span className="text-accent-solid">{item.duration}</span>
+                        <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
+                        <div className="flex items-center gap-3">
+                          <span className="w-[6px] h-[6px] rounded-full"></span>
+                          <p className="text-white/60">{item.company}</p>
                         </div>
                       </li>
                     ))}
