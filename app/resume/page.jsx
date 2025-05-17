@@ -51,35 +51,35 @@ const experience = {
     " I have worked on various projects, both independently and as part of a team. My experience includes frontend development, digital marketing, and video editing. I am proficient in using modern web technologies to build scalable and efficient applications.",
   items: [
     {
-      title: "Frontend Developer",
+      position: "Frontend Developer",
       company: "Tech Company",
       duration: "Jan 2023",
       description:
         "Developed and maintained responsive web applications using React, Tailwind CSS, and Next.js.",
     },
     {
-      title: "Frontend Developer",
+      position: "Frontend Developer",
       company: "Teckcify",
       duration: "Jan 2024",
       description:
         "Worked on multiple projects using React and TypeScript. Collaborated with designers to create user-friendly interfaces.",
     },
     {
-      title: "video Editor",
+      position: "video Editor",
       company: "Video Company",
       duration: "Jan 2024",
       description:
         "Edited and produced videos for various clients using Adobe Premiere Pro and After Effects.",
     },
     {
-      title: "Digital Marketer",
+      position: "Digital Marketer",
       company: "Marketing Company",
       duration: "Jan 2024",
       description:
         "Developed and executed digital marketing strategies to increase brand awareness and drive traffic to websites.",
     },
     {
-      title: "Frontend Developer",
+      position: "Frontend Developer",
       company: "Startup Company",
       duration: "Jan 2024",
       description:
@@ -170,16 +170,50 @@ const Resume = () => {
           </TabsList>
           <div className="w-full min-h-[70vh]">
             <TabsContent value="about" className="w-full">
-              About
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{about.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {about.description}
+                </p>
+              </div>
             </TabsContent>
             <TabsContent value="experience" className="w-full">
-              Experience
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{experience.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {experience.description}
+                </p>
+                <ScrollArea className="h-[400px]">
+                  <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+                    {experience.items.map((item, index) => (
+                      <li key={index}>
+                        <span>{item.duration}</span>
+                        <h3>{item.position}</h3>
+                        <div>
+                          <span></span>
+                          <p>{item.company}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </ScrollArea>
+              </div>
             </TabsContent>
             <TabsContent value="education" className="w-full">
-              Education
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{education.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {education.description}
+                </p>
+              </div>
             </TabsContent>
             <TabsContent value="skills" className="w-full">
-              Skills
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{skills.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {skills.description}
+                </p>
+              </div>
             </TabsContent>
           </div>
         </Tabs>
