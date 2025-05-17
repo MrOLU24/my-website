@@ -8,25 +8,25 @@ const serviceItems = [
   {
     num: "01",
     title: "Web Development",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+    desc: "building responsive and dynamic websites using modern technologies.",
     href: "",
   },
   {
     num: "02",
     title: "Mobile Development",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+    desc: "I create mobile applications for both Android and iOS platforms.",
     href: "",
   },
   {
     num: "03",
     title: "Video Editor",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+    desc: "Creating and editing videos for various platforms.",
     href: "",
   },
   {
     num: "04",
     title: "Digital Marketing",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+    desc: "I help businesses grow their online presence through effective digital marketing strategies.",
     href: "",
   },
 ];
