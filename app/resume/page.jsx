@@ -239,6 +239,23 @@ const Resume = () => {
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {skills.description}
                 </p>
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-[30px]">
+                  {skills.skillList.map((skill, index) => (
+                    <TooltipProvider key={index}>
+                      <Tooltip>
+                        <TooltipTrigger className="flex flex-col items-center justify-center gap-2">
+                          <div className="text-accent-solid text-4xl">
+                            {skill.icon}
+                          </div>
+                          <p className="text-white/60">{skill.name}</p>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{skill.name}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  ))}
+                </div>
               </div>
             </TabsContent>
           </div>
