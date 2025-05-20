@@ -38,7 +38,7 @@ const about = {
     { fieldName: "Phone", fieldValue: "+2348026709004" },
     { fieldName: "Location", fieldValue: "Lagos, Nigeria" },
     { fieldName: "Experience", fieldValue: "2+ years" },
-    { fieldName: "Education", fieldValue: "Diploma in Frontend Development" },
+    { fieldName: "Education", fieldValue: "Diploma in Frontend Engineering" },
     { fieldName: "Freelance", fieldValue: "Available" },
     { fieldName: "Languages", fieldValue: "English" },
   ],
@@ -99,7 +99,7 @@ const education = {
       year: "2020",
     },
     {
-      degree: "Higher National Diploma in Computer Science",
+      degree: "Higher ND in Computer Science",
       institution: "Gateway Polytechnic",
       year: "2022",
     },
@@ -169,12 +169,23 @@ const Resume = () => {
             <TabsTrigger value="skills">Skills</TabsTrigger>
           </TabsList>
           <div className="w-full min-h-[70vh]">
-            <TabsContent value="about" className="w-full">
-              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+            <TabsContent
+              value="about"
+              className="w-full text-center xl:text-left"
+            >
+              <div className="flex flex-col gap-[30px]">
                 <h3 className="text-4xl font-bold">{about.title}</h3>
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {about.description}
                 </p>
+                <ul className="grid grid-colos-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
+                  {about.info.map((item, index) => (
+                    <li key={index} className="flex items-center justify-center xl:justify-start gap-4">
+                      <span className="text-white/60">{item.fieldName}</span>
+                      <span className="text-xl">{item.fieldValue}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </TabsContent>
             <TabsContent value="experience" className="w-full">
@@ -206,6 +217,7 @@ const Resume = () => {
                 </ScrollArea>
               </div>
             </TabsContent>
+
             <TabsContent value="education" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{education.title}</h3>
@@ -219,13 +231,15 @@ const Resume = () => {
                         key={index}
                         className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                       >
-                        <span className="text-accent-solid">{item.year}</span>
+                        <span className="text-accent-solid">
+                          {item.institution}
+                        </span>
                         <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
                           {item.degree}
                         </h3>
                         <div className="flex items-center gap-3">
                           <span className="w-[6px] h-[6px] rounded-full bg-accent-solid"></span>
-                          <p className="text-white/60">{item.institution}</p>
+                          <p className="text-white/60">{item.year}</p>
                         </div>
                       </li>
                     ))}
@@ -233,7 +247,8 @@ const Resume = () => {
                 </ScrollArea>
               </div>
             </TabsContent>
-            <TabsContent value="skills" className="w-full">
+
+            <TabsContent value="skills" className="w-full h-full mb-10">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{skills.title}</h3>
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
@@ -247,7 +262,7 @@ const Resume = () => {
                           <div className="text-accent-solid text-4xl">
                             {skill.icon}
                           </div>
-                          <p className="text-white/60">{skill.name}</p>
+                          {/* <p className="text-white/60">{skill.name}</p> */}
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>{skill.name}</p>
