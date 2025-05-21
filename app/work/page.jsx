@@ -14,6 +14,7 @@ import {
 
 import Link from "next/link";
 import Image from "next/image";
+import WorkSliderBtn from "@/components/WorkSlideBtn";
 
 const projects = [
   {
@@ -41,7 +42,7 @@ const projects = [
     category: "frontend",
     title: "Weather App",
     description: "A weather app using OpenWeatherMap API",
-    stack: [{ name: "React" }, { name: "Tailwind CSS" }],
+    stack: [{ name: "HTML5" }, { name: "JavaScript" }, { name: "CSS" }],
     image: "/assets/work/thumb3.png",
     live: "https://weather-app.vercel.app/",
     github: "https://github.com/yourusername/weather-app",
@@ -50,17 +51,23 @@ const projects = [
 
 const Work = () => {
   const [projectsData, setProjectsData] = useState(projects[0]);
+  const handleSlideChange = (Swiper) => {
+    // Get the current index of the active slide
+    const currentIndex = Swiper.activeIndex;
+    // Update the projectsData state with the new project data
+    setProjectsData(projects[currentIndex]);
+  };
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: "easeIn"} }}
       className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-            <div>
+            <div className="flex flex-col gap-[30px] h-[50%]">
               <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
                 {projectsData.num}
               </div>
@@ -68,9 +75,70 @@ const Work = () => {
                 {projectsData.category} project
               </h2>
               <p className="">{projectsData.description}</p>
+              <ul>
+                {projectsData.stack.map((item, index) => (
+                  <li key={index} className="text-xl text-accent-solid">
+                    {item.name}
+                    {index !== projectsData.stack.length - 1 && ","}
+                  </li>
+                ))}
+              </ul>
+              <div className="border border-white/20"></div>
+              <div className="flex gap-4 items-center">
+                <Link href={projectsData.live} target="_blank">
+                  <TooltipProvider delayDuration={100}>
+                    <Tooltip>
+                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                        <BsArrowUpRight className="text-white text-3xl group-hover:text-accent-solid transition-all duration-500" />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Live project</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Link>
+                {/* GitHub Link */}
+                <Link href={projectsData.github} target="_blank">
+                  <TooltipProvider delayDuration={100}>
+                    <Tooltip>
+                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                        <BsGithub className="text-white text-3xl group-hover:text-accent-solid transition-all duration-500" />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>GitHub repository</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Link>
+              </div>
             </div>
           </div>
-          <div className="w-full xl:w-[50%]">slider</div>
+          <div className="w-full xl:w-[50%]">
+            <Swiper
+              spaceBetween={30}
+              slidesPerView={1}
+              loop={true}
+              className="xl:h-[520px] mb-12"
+              onSlideChange={handleSlideChange}
+            >
+              {projects.map((project, index) => (
+                <SwiperSlide key={index} className="w-full">
+                  <div className="h-[460px] relative group flex justify-center items-center">
+                    <div className="absolute top-0 bottom-0 w-full h-full bg-black/30 z-10"></div>
+                    <div className="w-full h-full relative">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+               <WorkSliderBtn/>
+            </Swiper>
+          </div>
         </div>
       </div>
     </motion.div>
