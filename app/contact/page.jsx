@@ -60,7 +60,6 @@ const Contact = () => {
                 <Input type="lastName" placeholder="Last Name" />
                 <Input type="email" placeholder="Email address" />
                 <Input type="phone" placeholder="Phone number" />
-                <Input type="message" placeholder="Message" />
               </div>
               <Select>
                 <SelectTrigger className="w-full">
@@ -75,6 +74,7 @@ const Contact = () => {
                   </SelectGroup>
                 </SelectContent>
               </Select>
+              <Textarea className="h-[200px]" placeholder="Your message here" />
             </form>
           </div>
           <div className="flex-1 items-center flex xl:justify-end order-1 xl:order-none mb-8 xl:mb-3">
