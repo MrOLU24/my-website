@@ -48,12 +48,12 @@ const Contact = () => {
           <div className="xl:w-[54%] order-2 xl:order-none ">
             <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
               <h3 className="text-accent-solid text-4xl">
-                Let's work together
+                Let&apos;s work together
               </h3>
               <p className="text-white/60">
-                I'm interested in collaborating on your next project. Please
-                fill out the form below and I'll get back to you as soon as
-                possible.
+                I&apos;m interested in collaborating on your next project.
+                Please fill out the form below and I&apos;ll get back to you as
+                soon as possible.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input type="firstName" placeholder="First Name" />
