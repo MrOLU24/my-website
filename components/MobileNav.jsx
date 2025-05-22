@@ -1,40 +1,30 @@
 "use client";
 
-import Link from "next/link";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
-
-// Icons for each link
-import { AiFillHome } from "react-icons/ai";
-import { MdDesignServices } from "react-icons/md";
-import { FaRegFileAlt } from "react-icons/fa";
-import { MdWork } from "react-icons/md";
-import { IoMdContact } from "react-icons/io";
+import Link from "next/link";
+import { CiMenuFries } from "react-icons/ci";
 
 const Links = [
   {
     name: "home",
     path: "/",
-    icon: <AiFillHome />,
   },
   {
     name: "services",
     path: "/services",
-    icon: <MdDesignServices />,
   },
   {
     name: "resume",
     path: "/resume",
-    icon: <FaRegFileAlt />,
   },
   {
     name: "work",
     path: "/work",
-    icon: <MdWork />,
   },
   {
     name: "contact",
     path: "/contact",
-    icon: <IoMdContact />,
   },
 ];
 
@@ -42,25 +32,34 @@ const MobileNav = () => {
   const pathname = usePathname();
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-black/50 border-t border-white/10 z-50">
-      <nav className="flex justify-between px-6 py-3">
-        {Links.map((link, index) => {
-          const isActive = pathname === link.path;
-          return (
+    <Sheet>
+      <SheetTrigger className="flex justify-center items-center">
+        <CiMenuFries className="text-[32px] text-accent-solid" />
+      </SheetTrigger>
+      <SheetContent className="flex flex-col">
+        <div className="mt-32 mb-40 text-center text-2xl">
+          <Link href="/">
+            <h1 className="text-4xl font-semibold">
+              MrOLU <span className="text-accent-solid">.</span>
+            </h1>
+          </Link>
+        </div>
+        <nav className="flex flex-col items-center gap-5 justify-center">
+          {Links.map((link, index) => (
             <Link
               key={index}
               href={link.path}
-              className={`flex flex-col items-center text-sm transition-all ${
-                isActive ? "text-accent-solid" : "text-white"
-              }`}
+              className={`${
+                link.path === pathname &&
+                "text-accent-solid border-b-2 border-accent-solid"
+              } text-xl capitalize hover:text-accent-hover transition-all`}
             >
-              <span className="text-2xl">{link.icon}</span>
-              <span className="text-xs capitalize">{link.name}</span>
+              {link.name}
             </Link>
-          );
-        })}
-      </nav>
-    </div>
+          ))}
+        </nav>
+      </SheetContent>
+    </Sheet>
   );
 };
 
