@@ -19,33 +19,33 @@ import WorkSliderBtn from "@/components/WorkSlideBtn";
 const projects = [
   {
     num: "01",
-    category: "frontend",
-    description: "XORA Landing page design",
-    title: "XORA",
+    category: "Furnishop",
+    description: "An e-commerce website for furniture",
+    title: "Furnishop",
     stack: [{ name: "React" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb1.png",
-    live: "https://xora.vercel.app/",
-    github: "https://github.com/yourusername/xora",
+    live: "",
+    github: "",
   },
   {
     num: "02",
-    category: "frontend",
-    title: "Movie App",
-    description: "A movie app using TMDB API",
-    stack: [{ name: "React" }, { name: "Tailwind CSS" }],
+    category: "Interno",
+    title: "Furniture Appliance",
+    description: " A furniture appliance website",
+    stack: [{ name: "Nestjs" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb2.png",
-    live: "https://movie-app.vercel.app/",
-    github: "https://github.com/yourusername/movie-app",
+    live: "",
+    github: "",
   },
   {
     num: "03",
-    category: "frontend",
-    title: "Weather App",
-    description: "A weather app using OpenWeatherMap API",
+    category: "Aline Lee",
+    title: "photographer portfolio",
+    description: "A photographer portfolio website",
     stack: [{ name: "HTML5" }, { name: "JavaScript" }, { name: "CSS" }],
     image: "/assets/work/thumb3.png",
-    live: "https://weather-app.vercel.app/",
-    github: "https://github.com/yourusername/weather-app",
+    live: "",
+    github: "",
   },
 ];
 
@@ -75,7 +75,7 @@ const Work = () => {
                 {projectsData.num}
               </div>
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent-solid transition-all duration-500 capitalize">
-                {projectsData.category} project
+                {projectsData.category} App
               </h2>
               <p className="">{projectsData.description}</p>
               <ul>
