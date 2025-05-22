@@ -51,16 +51,13 @@ const Contact = () => {
                 Let's work together
               </h3>
               <p>
-                Lorem ipsum dolor elit. Facilis mollitia molestiae nostrum
-                laborum officiis sit hic animi consectetur, qui quod! Tenetur
-                eum sunt officiis praesentium quisquam est repudiandae sint
-                dignissimos?
+                I'm interested in collaborating on your next project. Please fill out the form below and I'll get back to you as soon as possible.
               </p>
               <div>
                 <Input type="firstName" placeholder="First Name" />
-                <Input type="firstName" placeholder="First Name" />
-                <Input type="firstName" placeholder="First Name" />
-                <Input type="firstName" placeholder="First Name" />
+                <Input type="lastName" placeholder="Last Name" />
+                <Input type="email" placeholder="Email" />
+                <Input type="message" placeholder="Message" />
               </div>
             </form>
           </div>
