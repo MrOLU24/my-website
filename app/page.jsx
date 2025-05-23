@@ -38,6 +38,21 @@ export default function Home() {
                   <FiDownload />
                 </Button>
               </a>
+              <a
+                href="/certificate.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="uppercase flex items-center gap-2"
+                >
+                  <span>Certificate</span>
+                  <FiDownload />
+                </Button>
+              </a>
+
               <div className="mb-8 xl:mb-0">
                 <Socials
                   containerStyles="flex gap-6"
