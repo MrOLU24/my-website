@@ -1,5 +1,3 @@
-// This is a Next.js 13+ app directory example
-// Importing the necessary CSS file for global styles
 import "./globals.css";
 import { Button } from "@/components/ui/button";
 import { FiDownload } from "react-icons/fi";
