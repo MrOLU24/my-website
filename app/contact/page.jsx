@@ -1,5 +1,8 @@
 "use client";
 
+import { useRef } from "react";
+import emailjs from "emailjs-com";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,6 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 
@@ -34,6 +38,30 @@ const info = [
 ];
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_x0s7zjm",
+        "template_zmt0y99",
+        form.current,
+        "fywTgAqre9B77O2Ae"
+      )
+      .then(
+        (result) => {
+          console.log("SUCCESS!", result.text);
+          alert("Message sent successfully!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+          alert("Failed to send message.");
+        }
+      );
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -46,7 +74,11 @@ const Contact = () => {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
           <div className="xl:w-[54%] order-2 xl:order-none ">
-            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+            >
               <h3 className="text-accent-solid text-4xl">
                 Let&apos;s work together
               </h3>
@@ -55,31 +87,72 @@ const Contact = () => {
                 Please fill out the form below and I&apos;ll get back to you as
                 soon as possible.
               </p>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firstName" placeholder="First Name" />
-                <Input type="lastName" placeholder="Last Name" />
-                <Input type="email" placeholder="Email address" />
-                <Input type="phone" placeholder="Phone number" />
+                <Input
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name"
+                  required
+                />
+                <Input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name"
+                  required
+                />
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Email address"
+                  required
+                />
+                <Input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone number"
+                  required
+                />
               </div>
-              <Select>
+
+              {/* EmailJS expects a name, so wrap Select in a hidden input */}
+              <input type="hidden" name="service" id="selected-service" />
+
+              <Select
+                onValueChange={(value) => {
+                  document.getElementById("selected-service").value = value;
+                }}
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a Service" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="est">Web Development</SelectItem>
-                    <SelectItem value="cst">Digital Marketing</SelectItem>
-                    <SelectItem value="mst">Video Editor</SelectItem>
+                    <SelectItem value="Web Development">
+                      Web Development
+                    </SelectItem>
+                    <SelectItem value="Digital Marketing">
+                      Digital Marketing
+                    </SelectItem>
+                    <SelectItem value="Video Editor">Video Editor</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
-              <Textarea className="h-[200px]" placeholder="Your message here" />
-              <Button size="md" className="max-w-48">
+
+              <Textarea
+                name="message"
+                className="h-[200px]"
+                placeholder="Your message here"
+                required
+              />
+
+              <Button type="submit" size="md" className="max-w-48">
                 Send message
               </Button>
             </form>
           </div>
+
           <div className="flex-1 items-center flex xl:justify-end order-1 xl:order-none mb-8 xl:mb-3">
             <ul className="flex flex-col gap-10">
               {info.map((item, index) => (
