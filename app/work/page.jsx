@@ -47,6 +47,26 @@ const projects = [
     live: "",
     github: "",
   },
+  {
+    num: "04",
+    category: "E-commerce",
+    title: "E-commerce website",
+    description: "A full-stack e-commerce website",
+    stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }],
+    image: "/assets/work/thumb4.png",
+    live: "",
+    github: "",
+  },
+  {
+    num: "05",
+    category: "Portfolio",
+    title: "Personal Portfolio",
+    description: "My personal portfolio website",
+    stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }],
+    image: "/assets/work/thumb5.png",
+    live: "",
+    github: "",
+  },
 ];
 
 const Work = () => {
