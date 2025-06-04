@@ -59,14 +59,34 @@ const projects = [
   },
   {
     num: "05",
-    category: "Portfolio",
-    title: "Personal Portfolio",
-    description: "My personal portfolio website",
+    category: " Movie App",
+    title: "Movie App",
+    description: "A movie app that fetches data from an API",
     stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb5.png",
-    live: "",
-    github: "",
+    live: "https://movie-app-seven-mauve.vercel.app/",
+    github: "https://github.com/MrOLU24/movieApp",
   },
+  {
+    num: "06",
+    category: "Portfolio",
+    title: "Portfolio",
+    description: "My personal portfolio website",
+    stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }],
+    image: "/assets/work/thumb6.png",
+    live: "https://mr-olu-portfolio.vercel.app/",
+    github: "https://github.com/MrOLU24/portfolio",
+  },
+  {
+    num: "07",
+    category: "Video editing",
+    title: "XORA Video Editing",
+    description: "A video Editing landing page",
+    stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }],
+    image: "/assets/work/thumb7.png",
+    live: "https://xora-video-editing.vercel.app/",
+    github: "https://github.com/MrOLU24/xora-video-editing",
+  }
 ];
 
 const Work = () => {
