@@ -74,8 +74,8 @@ const projects = [
     description: "My personal portfolio website",
     stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb6.png",
-    live: "https://mr-olu-portfolio.vercel.app/",
-    github: "https://github.com/MrOLU24/portfolio",
+    live: "https://mrolu-webdev.vercel.app/",
+    github: "/",
   },
   {
     num: "07",
