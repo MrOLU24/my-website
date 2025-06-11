@@ -84,8 +84,8 @@ const projects = [
     description: "A video Editing landing page",
     stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb7.png",
-    live: "https://xora-video-editing.vercel.app/",
-    github: "https://github.com/MrOLU24/xora-video-editing",
+    live: "https://xora-page.vercel.app/",
+    github: "https://github.com/MrOLU24/XORA",
   }
 ];
 
