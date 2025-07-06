@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -54,6 +54,7 @@ const Contact = () => {
         (result) => {
           console.log("SUCCESS!", result.text);
           alert("Message sent successfully!");
+          form.current.reset(); // Reset form after successful submission
         },
         (error) => {
           console.log("FAILED...", error.text);
