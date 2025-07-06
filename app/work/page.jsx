@@ -19,13 +19,13 @@ import WorkSliderBtn from "@/components/WorkSlideBtn";
 const projects = [
   {
     num: "01",
-    category: "Furnishop",
-    description: "An e-commerce website for furniture",
-    title: "Furnishop",
-    stack: [{ name: "React" }, { name: "Tailwind CSS" }],
-    image: "/assets/work/thumb1.png",
-    live: "",
-    github: "",
+    category: "kayverified barber",
+    description: "A barber website",
+    title: "Kayverified Barber",
+    stack: [{ name: "React" }, { name: "Tailwind CSS" }, { name: "Framer Motion" }],
+    image: "/assets/work/thumb8.png",
+    live: "https://www.kayverified.com/",
+    github: "#",
   },
   {
     num: "02",

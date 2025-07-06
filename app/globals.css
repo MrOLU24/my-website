@@ -22,3 +22,20 @@
 .group:hover .text-outline-hover {
   -webkit-text-stroke: 1px #00ff99;
 }
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff99;
+  border-radius: 4px;
+}

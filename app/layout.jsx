@@ -12,7 +12,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata = {
   title: "Oluwashola || MrOLU - Creative Frontend Developer",
-  description: "I am a creative frontend developer with a passion for building elegant digital experiences.",
+  description:
+    "I am a creative frontend developer with a passion for building elegant digital experiences.",
 };
 
 export default function RootLayout({ children }) {
