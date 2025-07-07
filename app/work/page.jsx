@@ -25,7 +25,7 @@ const projects = [
     stack: [{ name: "React" }, { name: "Tailwind CSS" }, { name: "Framer Motion" }],
     image: "/assets/work/thumb8.png",
     live: "https://www.kayverified.com/",
-    github: "#",
+    github: "",
   },
   {
     num: "02",
