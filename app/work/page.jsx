@@ -20,38 +20,42 @@ const projects = [
   {
     num: "01",
     category: "kayverified barber",
-    description: "A barber website",
+    description: "Modern barbershop website with online booking system and service showcase",
     title: "Kayverified Barber",
-    stack: [{ name: "React" }, { name: "Tailwind CSS" }, { name: "Framer Motion" }],
+    stack: [
+      { name: "React" },
+      { name: "Tailwind CSS" },
+      { name: "Framer Motion" },
+    ],
     image: "/assets/work/thumb8.png",
     live: "https://www.kayverified.com/",
     github: "#",
   },
   {
     num: "02",
-    category: "Interno",
-    title: "Furniture Appliance",
-    description: " A furniture appliance website",
+    category: "Trustpeer",
+    title: "p2p Platform",
+    description: "Secure peer-to-peer cryptocurrency trading platform with escrow services",
     stack: [{ name: "Nestjs" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb2.png",
-    live: "",
+    live: "https://trustpeer-201.vercel.app/",
     github: "",
   },
   {
     num: "03",
-    category: "Aline Lee",
-    title: "photographer portfolio",
-    description: "A photographer portfolio website",
-    stack: [{ name: "HTML5" }, { name: "JavaScript" }, { name: "CSS" }],
+    category: "Video editing",
+    title: "Xora Video Editing",
+    description: "Professional video editing service landing page with portfolio showcase",
+    stack: [{ name: "React" }, { name: "JavaScript" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
+    live: "https://xora-page.vercel.app/",
+    github: "https://github.com/MrOLU24/XORA",
   },
   {
     num: "04",
     category: "E-commerce",
     title: "E-commerce website",
-    description: "A full-stack e-commerce website",
+    description: "Full-featured online store with cart, payments, and inventory management",
     stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb4.png",
     live: "",
@@ -61,7 +65,7 @@ const projects = [
     num: "05",
     category: " Movie App",
     title: "Movie App",
-    description: "A movie app that fetches data from an API",
+    description: "Interactive movie discovery app with ratings, reviews, and watchlist features",
     stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb5.png",
     live: "https://movie-app-seven-mauve.vercel.app/",
@@ -71,32 +75,46 @@ const projects = [
     num: "06",
     category: "Portfolio",
     title: "Portfolio",
-    description: "My personal portfolio website",
+    description: "Personal portfolio website showcasing projects and professional experience",
     stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb6.png",
     live: "https://mrolu-webdev.vercel.app/",
     github: "/",
-  },
-  {
-    num: "07",
-    category: "Video editing",
-    title: "XORA Video Editing",
-    description: "A video Editing landing page",
-    stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }],
-    image: "/assets/work/thumb7.png",
-    live: "https://xora-page.vercel.app/",
-    github: "https://github.com/MrOLU24/XORA",
   }
 ];
 
 const Work = () => {
   const [projectsData, setProjectsData] = useState(projects[0]);
-  const handleSlideChange = (Swiper) => {
+  const [swiperRef, setSwiperRef] = useState(null);
+  
+  const handleSlideChange = (swiper) => {
     // Get the current index of the active slide
-    const currentIndex = Swiper.activeIndex;
+    const currentIndex = swiper.activeIndex;
     // Update the projectsData state with the new project data
     setProjectsData(projects[currentIndex]);
   };
+
+  const goToSlide = (index) => {
+    if (swiperRef) {
+      swiperRef.slideTo(index);
+    }
+  };
+
+  // Keyboard navigation
+  React.useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (swiperRef) {
+        if (event.key === 'ArrowLeft') {
+          swiperRef.slidePrev();
+        } else if (event.key === 'ArrowRight') {
+          swiperRef.slideNext();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [swiperRef]);
 
   return (
     <motion.div
@@ -127,32 +145,65 @@ const Work = () => {
                 ))}
               </ul>
               <div className="border border-white/20"></div>
+              
+              {/* Project Number Indicators */}
+              <div className="flex gap-2 mb-4">
+                {projects.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      projectsData.num === projects[index].num
+                        ? 'bg-accent-solid'
+                        : 'bg-white/20 hover:bg-white/40'
+                    }`}
+                    aria-label={`Go to project ${projects[index].num}`}
+                  />
+                ))}
+              </div>
+              
               <div className="flex gap-4 items-center">
-                <Link href={projectsData.live} target="_blank">
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsArrowUpRight className="text-white text-3xl group-hover:text-accent-solid transition-all duration-500" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Live project</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {/* Live Project Link */}
+                {projectsData.live && projectsData.live !== "" ? (
+                  <Link href={projectsData.live} target="_blank">
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsArrowUpRight className="text-white text-3xl group-hover:text-accent-solid transition-all duration-500" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Live project</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                ) : (
+                  <div className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center opacity-50 cursor-not-allowed">
+                    <BsArrowUpRight className="text-white text-3xl" />
+                  </div>
+                )}
+
                 {/* GitHub Link */}
-                <Link href={projectsData.github} target="_blank">
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent-solid transition-all duration-500" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>GitHub repository</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {projectsData.github &&
+                projectsData.github !== "" &&
+                projectsData.github !== "#" ? (
+                  <Link href={projectsData.github} target="_blank">
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsGithub className="text-white text-3xl group-hover:text-accent-solid transition-all duration-500" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>GitHub repository</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                ) : (
+                  <div className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center opacity-50 cursor-not-allowed">
+                    <BsGithub className="text-white text-3xl" />
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -160,20 +211,30 @@ const Work = () => {
             <Swiper
               spaceBetween={30}
               slidesPerView={1}
-              loop={true}
-              className="xl:h-[520px] mb-12"
+              loop={false}
+              className="xl:h-[520px] mb-12 rounded-lg"
               onSlideChange={handleSlideChange}
+              onSwiper={setSwiperRef}
+              initialSlide={0}
+              watchSlidesProgress={true}
+              centerInsufficientSlides={true}
             >
               {projects.map((project, index) => (
                 <SwiperSlide key={index} className="w-full">
-                  <div className="h-[460px] relative group flex justify-center items-center">
-                    <div className="absolute top-0 bottom-0 w-full h-full bg-black/30 z-10"></div>
-                    <div className="w-full h-full relative">
+                  <div className="h-[460px] relative group flex justify-center items-center rounded-lg overflow-hidden">
+                    <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10 group-hover:bg-black/30 transition-all duration-300"></div>
+                    <div className="w-full h-full relative p-4">
                       <Image
                         src={project.image}
                         alt={project.title}
                         fill
-                        className="object-cover"
+                        className="object-contain group-hover:scale-105 transition-all duration-500 rounded-md"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        priority={index === 0}
+                        onError={(e) => {
+                          console.log(`Failed to load image: ${project.image}`);
+                          e.target.style.display = "none";
+                        }}
                       />
                     </div>
                   </div>
