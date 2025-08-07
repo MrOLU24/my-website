@@ -24,7 +24,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <a
-                href="/resume.pdf"
+                href="/OLUWASHOLA2_Resume.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
