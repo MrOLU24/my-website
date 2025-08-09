@@ -38,9 +38,10 @@ const MobileNav = () => {
         <nav className="flex flex-col items-center gap-5 justify-center">
           {Links.map((link, index) => (
             <Link
-              key={index}
+              key={link.path}
               href={link.path}
               onClick={handleLinkClick}
+              prefetch={true}
               className={`${
                 link.path === pathname
                   ? "text-accent-solid border-b-2 border-accent-solid"

@@ -18,12 +18,13 @@ const Nav = () => {
       {Links.map((linkItem) => (
         <Link
           href={linkItem.path}
-          key={linkItem.path} // Better key using path instead of index
+          key={linkItem.path}
           className={`capitalize font-medium transition-colors ${
             pathname === linkItem.path
               ? "text-accent-solid border-b-2 border-accent-solid"
               : "hover:text-accent-solid-hover"
           }`}
+          prefetch={true}
         >
           {linkItem.name}
         </Link>
