@@ -24,19 +24,23 @@ const MobileNav = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const handleLinkClick = (e) => {
-    // Close the menu and allow natural Link navigation
+  const handleLinkClick = () => {
+    // Close the menu immediately
     setOpen(false);
   };
 
   return (
-    <Sheet open={open} onOpenChange={setOpen} modal={true}>
+    <Sheet open={open} onOpenChange={setOpen} modal={false}>
       <SheetTrigger asChild>
-        <button className="flex justify-center items-center" aria-label="Open navigation menu">
+        <button 
+          className="flex justify-center items-center relative z-10" 
+          aria-label="Open navigation menu"
+          style={{ pointerEvents: 'auto' }}
+        >
           <CiMenuFries className="text-[32px] text-accent-solid" />
         </button>
       </SheetTrigger>
-  <SheetContent className="flex flex-col z-[45]" side="right">
+      <SheetContent className="flex flex-col z-[45]" side="right">
         {/* Hidden but accessible title and description for screen readers */}
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         <SheetDescription className="sr-only">
@@ -50,17 +54,19 @@ const MobileNav = () => {
             </h1>
           </Link>
         </div>
-        <nav className="flex flex-col items-center gap-5 justify-center">
+        <nav className="flex flex-col items-center gap-5 justify-center" role="navigation" aria-label="Mobile navigation">
           {Links.map((link) => (
             <Link
               key={link.path}
               href={link.path}
               onClick={handleLinkClick}
+              prefetch={true}
               className={`${
                 link.path === pathname
                   ? "text-accent-solid border-b-2 border-accent-solid"
                   : ""
-              } text-xl capitalize hover:text-accent-hover transition-all block w-full text-center py-2`}
+              } text-xl capitalize hover:text-accent-hover transition-all block w-full text-center py-2 relative z-10`}
+              style={{ pointerEvents: 'auto' }}
             >
               {link.name}
             </Link>
@@ -69,6 +75,4 @@ const MobileNav = () => {
       </SheetContent>
     </Sheet>
   );
-};
-
-export default MobileNav;
+};export default MobileNav;
