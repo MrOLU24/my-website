@@ -36,7 +36,7 @@ const MobileNav = () => {
           <CiMenuFries className="text-[32px] text-accent-solid" />
         </button>
       </SheetTrigger>
-      <SheetContent className="flex flex-col" side="right">
+  <SheetContent className="flex flex-col z-[45]" side="right">
         {/* Hidden but accessible title and description for screen readers */}
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         <SheetDescription className="sr-only">

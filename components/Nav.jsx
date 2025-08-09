@@ -15,19 +15,23 @@ const Nav = () => {
 
   return (
     <nav className="flex gap-8">
-      {Links.map((linkItem) => (
-        <Link
-          href={linkItem.path}
-          key={linkItem.path}
-          className={`capitalize font-medium transition-colors ${
-            pathname === linkItem.path
-              ? "text-accent-solid border-b-2 border-accent-solid"
-              : "hover:text-accent-solid-hover"
-          }`}
-        >
-          {linkItem.name}
-        </Link>
-      ))}
+      {Links.map((linkItem) => {
+        const isActive = pathname === linkItem.path;
+        return (
+          <Link
+            href={linkItem.path}
+            key={linkItem.path}
+            aria-current={isActive ? "page" : undefined}
+            className={`capitalize font-medium transition-colors ${
+              isActive
+                ? "text-accent-solid border-b-2 border-accent-solid"
+                : "hover:text-accent-solid-hover"
+            }`}
+          >
+            {linkItem.name}
+          </Link>
+        );
+      })}
     </nav>
   );
 };
