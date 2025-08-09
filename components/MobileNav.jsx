@@ -7,7 +7,7 @@ import {
   SheetTitle, 
   SheetDescription 
 } from "@/components/ui/sheet";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
 import { useState } from "react";
@@ -22,23 +22,21 @@ const Links = [
 
 const MobileNav = () => {
   const pathname = usePathname();
-  const router = useRouter();
   const [open, setOpen] = useState(false);
 
-  const handleLinkClick = (path) => {
-    setOpen(false); // Close the menu first
-    // Use router.push for programmatic navigation
-    setTimeout(() => {
-      router.push(path);
-    }, 100); // Small delay to allow sheet to close
+  const handleLinkClick = (e) => {
+    // Close the menu and allow natural Link navigation
+    setOpen(false);
   };
 
   return (
-    <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger className="flex justify-center items-center">
-        <CiMenuFries className="text-[32px] text-accent-solid" />
+    <Sheet open={open} onOpenChange={setOpen} modal={true}>
+      <SheetTrigger asChild>
+        <button className="flex justify-center items-center" aria-label="Open navigation menu">
+          <CiMenuFries className="text-[32px] text-accent-solid" />
+        </button>
       </SheetTrigger>
-      <SheetContent className="flex flex-col">
+      <SheetContent className="flex flex-col" side="right">
         {/* Hidden but accessible title and description for screen readers */}
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         <SheetDescription className="sr-only">
@@ -46,25 +44,26 @@ const MobileNav = () => {
         </SheetDescription>
         
         <div className="mt-32 mb-40 text-center text-2xl">
-          <button onClick={() => handleLinkClick("/")}>
+          <Link href="/" onClick={handleLinkClick}>
             <h1 className="text-4xl font-semibold">
               MrOLU <span className="text-accent-solid">.</span>
             </h1>
-          </button>
+          </Link>
         </div>
         <nav className="flex flex-col items-center gap-5 justify-center">
           {Links.map((link) => (
-            <button
+            <Link
               key={link.path}
-              onClick={() => handleLinkClick(link.path)}
+              href={link.path}
+              onClick={handleLinkClick}
               className={`${
                 link.path === pathname
                   ? "text-accent-solid border-b-2 border-accent-solid"
                   : ""
-              } text-xl capitalize hover:text-accent-hover transition-all`}
+              } text-xl capitalize hover:text-accent-hover transition-all block w-full text-center py-2`}
             >
               {link.name}
-            </button>
+            </Link>
           ))}
         </nav>
       </SheetContent>

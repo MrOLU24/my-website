@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const Links = [
   { name: "Home", path: "/" },
@@ -12,12 +12,6 @@ const Links = [
 
 const Nav = () => {
   const pathname = usePathname();
-  const router = useRouter();
-
-  const handleNavigation = (path, e) => {
-    e.preventDefault();
-    router.push(path);
-  };
 
   return (
     <nav className="flex gap-8">
@@ -25,13 +19,11 @@ const Nav = () => {
         <Link
           href={linkItem.path}
           key={linkItem.path}
-          onClick={(e) => handleNavigation(linkItem.path, e)}
           className={`capitalize font-medium transition-colors ${
             pathname === linkItem.path
               ? "text-accent-solid border-b-2 border-accent-solid"
               : "hover:text-accent-solid-hover"
           }`}
-          prefetch={true}
         >
           {linkItem.name}
         </Link>
