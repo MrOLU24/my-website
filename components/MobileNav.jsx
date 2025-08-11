@@ -10,6 +10,7 @@ import {
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
+import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
 
 const Links = [
@@ -33,11 +34,15 @@ const MobileNav = () => {
     <Sheet open={open} onOpenChange={setOpen} modal={false}>
       <SheetTrigger asChild>
         <button 
-          className="flex justify-center items-center relative z-10" 
-          aria-label="Open navigation menu"
+          className="flex justify-center items-center relative z-10 transition-all duration-300" 
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           style={{ pointerEvents: 'auto' }}
         >
-          <CiMenuFries className="text-[32px] text-accent-solid" />
+          {open ? (
+            <IoMdClose className="text-[32px] text-accent-solid" />
+          ) : (
+            <CiMenuFries className="text-[32px] text-accent-solid" />
+          )}
         </button>
       </SheetTrigger>
       <SheetContent className="flex flex-col z-[45]" side="right">
