@@ -1,6 +1,8 @@
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import PageTransition from "@/components/PageTransition";
+import LoadingBar from "@/components/LoadingBar";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -25,8 +27,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={jetbrainsMono.variable} suppressHydrationWarning={true}>
+        <LoadingBar />
         <Header />
-        {children}
+        <PageTransition>
+          {children}
+        </PageTransition>
       </body>
     </html>
   );
