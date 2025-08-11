@@ -23,11 +23,12 @@ const PageTransition = ({ children }) => {
           opacity: 0, 
           y: -20,
           transition: { 
-            duration: 0.3, 
+            duration: 0.2, 
             ease: "easeInOut" 
           }
         }}
         className="min-h-screen"
+        style={{ pointerEvents: 'auto' }}
       >
         {children}
       </motion.div>

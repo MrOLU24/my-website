@@ -28,10 +28,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={jetbrainsMono.variable} suppressHydrationWarning={true}>
         <Header />
-        {/* Temporarily disable transitions to test navigation */}
-        {/* <StairTransition />
-        <PageTransition>{children}</PageTransition> */}
-        {children}
+        <StairTransition />
+        <PageTransition>{children}</PageTransition>
       </body>
     </html>
   );
