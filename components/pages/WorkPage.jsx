@@ -40,7 +40,7 @@ const projects = [
     stack: [{ name: "Nestjs" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb2.png",
     live: "https://trustpeer-201.vercel.app/",
-    github: "",
+    github: "#",
   },
   {
     num: "03",
@@ -59,14 +59,14 @@ const projects = [
   },
   {
     num: "04",
-    category: "E-commerce",
-    title: "E-commerce website",
+    category: "Toritype",
+    title: "A text to speech platform",
     description:
-      "Full-featured online store with cart, payments, and inventory management",
+      "AI-powered text-to-speech platform with natural voice generation",
     stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb4.png",
-    live: "",
-    github: "",
+    live: "https://toritype.vercel.app/",
+    github: "https://github.com/MrOLU24/Niger-Accent_Speech-to-Text",
   },
   {
     num: "05",
@@ -88,7 +88,7 @@ const projects = [
     stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb6.png",
     live: "https://mrolu.vercel.app/",
-    github: "/",
+    github: "https://github.com/MrOLU24/my-website",
   },
 ];
 
