@@ -32,7 +32,7 @@ const HomePage = () => {
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <a
-                href="/OLUWASHOLA2_Resume.pdf"
+                href="/Olatunji_Oluwashola_Resume.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
